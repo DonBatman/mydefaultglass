@@ -4,7 +4,7 @@ local glass = {
 				{"brick","Brick"},
 				{"cactus","Cactus"},
 				{"clay","Clay"},
-				{"coal","Coal"},
+				{"coalblock","Coal"},
 				{"cobble","Cobble"},
 				{"desert_cobble","Desert Cobble"},
 				{"desert_sandstone","Desert Sandstone"},
@@ -32,4 +32,18 @@ minetest.register_node("mydefaultglass:"..col.."_glass", {
 	groups = {cracky=3,oddly_breakable_by_hand=3},
 	sounds = default.node_sound_glass_defaults(),
 })
+minetest.register_craft({
+	type = "shapeless",
+	output = "mydefaultglass:"..col.."_glass 2",
+	recipe = {
+		"default:"..col, "default:glass"
+	}
+})
 end
+minetest.register_craft({
+	type = "shapeless",
+	output = "mydefaultglass:lava_glass 2",
+	recipe = {
+		"bucket:bucket_lava", "default:glass"
+	}
+})
